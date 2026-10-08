@@ -33,11 +33,11 @@ format:
 ---
 
 <!-- 複製成 reports/<會議>_<年份>_<第一作者的姓>.qmd，全小寫（例 icassp_2026_lee.qmd）。13 頁固定，見 Lab-Hub 論文報告教材 §3。
-     通常由 AI 依 §4.3 指令產生草稿；第 7、12、13 頁 AI 不生，自己寫。每頁講稿分【講述】與【提示】，【提示】後面要空一行 -->
+     通常由 AI 依 §4.3 指令產生草稿；第 7、12、13 頁 AI 不生，自己寫。投影片本體英文、講稿中文。每頁講稿分【講述】與【提示】，【提示】後面要空一行 -->
 
-## 一句話
+## One-sentence claim
 
-在〔任務〕上，〔方法〕讓〔主指標〕在〔資料集〕從〔A〕到〔B〕，代價是〔　〕。
+On 〔task〕, 〔method〕 improves 〔metric〕 on 〔dataset〕 from 〔A〕 to 〔B〕, at the cost of 〔　〕.
 
 ::: {.notes}
 **【講述】**（約 1 分鐘）
@@ -49,9 +49,9 @@ format:
 - 數字出處：論文表〔N〕
 :::
 
-## 背景
+## Background
 
-![〔原本的 pipeline〕](figs/background.png)
+![The conventional pipeline](figs/background.png)
 
 ::: {.notes}
 **【講述】**（約 1.5 分鐘）
@@ -63,11 +63,11 @@ format:
 - 出處：§〔　〕
 :::
 
-## 痛點
+## Pain point
 
-![〔在背景圖上標出壞掉的位置〕](figs/painpoint.png)
+![Where the conventional pipeline breaks](figs/painpoint.png)
 
-一個例子：〔輸入〕→ 錯成〔　〕
+Example: 〔input〕 → 〔wrong output〕
 
 ::: {.notes}
 **【講述】**（約 1.5 分鐘）
@@ -79,9 +79,9 @@ format:
 - 例子出處：§〔　〕或 Fig.〔　〕
 :::
 
-## 架構
+## Architecture
 
-![架構圖，取自原論文 Fig.〔N〕，標註為本人所加](figs/arch.png)
+![Architecture (from the paper, Fig. 〔N〕; annotations mine)](figs/arch.png)
 
 ::: {.notes}
 **【講述】**（約 2 分鐘）
@@ -93,9 +93,9 @@ format:
 - 每個模組對應 §〔　〕
 :::
 
-## 訓練
+## Training
 
-![同一張架構圖：加損失與梯度流向，凍結的塗灰](figs/arch_train.png)
+![Training: loss and gradient flow; frozen modules in grey](figs/arch_train.png)
 
 ::: {.notes}
 **【講述】**（約 2 分鐘）
@@ -107,9 +107,9 @@ format:
 - 出處：§〔　〕
 :::
 
-## 推論
+## Inference
 
-![同一張架構圖：拿掉訓練才有的東西](figs/arch_infer.png)
+![Inference: training-only parts removed](figs/arch_infer.png)
 
 ::: {.notes}
 **【講述】**（約 1.5 分鐘）
@@ -121,9 +121,9 @@ format:
 - 論文未說明的部分：〔　〕
 :::
 
-## 走線
+## Trace one example
 
-![架構圖上標一個具體例子的中間狀態](figs/arch_trace.png)
+![One example traced through the model](figs/arch_trace.png)
 
 ::: {.notes}
 **【講述】**（約 2 分鐘）
@@ -136,11 +136,11 @@ format:
 - 我的推測（論文未明說）：〔　〕
 :::
 
-## 物理意義
+## Why it works
 
-- 新成分拿掉會怎樣：〔　〕
-- 為什麼放這個位置：〔　〕
-- 參數量／計算量：〔　〕
+- Remove the new module → 〔　〕
+- Why this position: 〔　〕
+- Params / compute: 〔　〕
 
 ::: {.notes}
 **【講述】**（約 0.5 分鐘）
@@ -152,17 +152,17 @@ format:
 - 〔　〕
 :::
 
-## 設定與公平性
+## Setup and fairness
 
 | | |
 |---|---|
-| 資料集 | 〔　〕 |
-| 指標 | 〔　〕 |
-| Baseline | 〔　〕 |
-| 同 backbone？ | 〔　〕 |
-| 同資料？ | 〔　〕 |
-| Baseline 重跑還是引用？ | 〔　〕 |
-| 多 seed？ | 〔　〕 |
+| Datasets | 〔　〕 |
+| Metrics | 〔　〕 |
+| Baselines | 〔　〕 |
+| Same backbone? | 〔　〕 |
+| Same data? | 〔　〕 |
+| Baselines re-run or cited? | 〔　〕 |
+| Multiple seeds? | 〔　〕 |
 
 ::: {.notes}
 **【講述】**（約 1.5 分鐘）
@@ -174,9 +174,9 @@ format:
 - 出處：實驗設定節 §〔　〕
 :::
 
-## 主結果
+## Main results
 
-〔主表 3–5 列，關鍵數字加粗；註明表號〕
+〔Main table, 3–5 rows, key numbers in bold; cite table number〕
 
 ::: {.notes}
 **【講述】**（約 2 分鐘）
@@ -188,11 +188,11 @@ format:
 - 表〔N〕
 :::
 
-## 消融與賣點圖
+## Ablation and key figure
 
-〔消融表幾列〕
+〔Ablation rows〕
 
-![賣點圖，取自原論文 Fig.〔N〕](figs/selling.png)
+![Key figure (from the paper, Fig. 〔N〕)](figs/selling.png)
 
 ::: {.notes}
 **【講述】**（約 1.5 分鐘）
@@ -204,11 +204,11 @@ format:
 - 〔　〕
 :::
 
-## 我的判斷
+## My assessment
 
-- 最強的一點：〔　〕
-- 最弱的一點：〔　〕
-- 如果我是審稿人會問：〔　〕
+- Strongest point: 〔　〕
+- Weakest point: 〔　〕
+- What a reviewer would ask: 〔　〕
 
 ::: {.notes}
 **【講述】**（約 1.5 分鐘）
@@ -220,10 +220,10 @@ format:
 - 〔　〕
 :::
 
-## 對我的題目的啟發
+## Takeaways for my work
 
-- 能借什麼：〔方法／資料／評測／圖的畫法〕
-- 要不要變成 idea card：〔是：來源〔　〕／否：原因〕
+- What to borrow: 〔method / data / evaluation / figure style〕
+- Idea card? 〔yes: source 〔　〕 / no: why〕
 
 ::: {.notes}
 **【講述】**（約 1 分鐘）

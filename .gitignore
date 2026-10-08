@@ -11,10 +11,12 @@ ckpt/
 *.flac
 *.npy
 *.npz
-# 金鑰
+# 金鑰（注意：不要用 *token* 這種寬鬆規則，會把 tokenizer.py 一起擋掉）
 .env
+.env.*
 *.key
-*token*
+*.pem
+secrets/
 # Quarto 產物（html 要 commit，_files 不用）
 reports/*_files/
 .quarto/

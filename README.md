@@ -9,6 +9,48 @@
 > 這是 SigSpeechAI-NTNU 的學生研究 repo 範本。從 GitHub 的 **Use this template** 建立自己的 repo，命名 `〔名字〕_〔題目簡稱〕`（例：`Kai-Jun_CtxBias`），設 private，把教授加為 collaborator，然後把這段提示刪掉、填下面的欄位。
 > 教材在 [Lab-Hub](https://github.com/SigSpeechAI-NTNU/Lab-Hub)；這個 repo 的每個資料夾對應那裡的一站。
 
+## 第 0 天：從零到第一個 commit
+
+沒用過 GitHub template 的人照這個做，約 20 分鐘。每一步寫的是畫面上的字。
+
+1. **接受 org 邀請**：教授會從 `SigSpeechAI-NTNU` 寄邀請到你的 GitHub 帳號的 email；也可以直接開 <https://github.com/SigSpeechAI-NTNU> 看頂端有沒有「You've been invited」。沒收到就問教授。不是成員的話，第 3 步的 Owner 選不到 org
+2. **開範本**：<https://github.com/SigSpeechAI-NTNU/student-template>，按右上角綠色的 **Use this template** → **Create a new repository**
+3. **填表**：
+   - Owner：選 `SigSpeechAI-NTNU`（不是你自己的帳號）
+   - Repository name：`〔名字〕_〔題目簡稱〕`，例 `Kai-Jun_CtxBias`；題目簡稱先用 Round 1 的，之後可改
+   - Description：一句話題目，可以先空
+   - **Private**（一定要）
+   - 「Include all branches」不用勾
+   - 按 **Create repository**
+4. **加教授為 collaborator**：新 repo 的 **Settings** → 左側 **Collaborators and teams** → **Add people** → 輸入教授的 GitHub 帳號 → Role 選 **Write** 以上 → Add。教授看不到你的 repo，之後的 Issue 他也看不到
+5. **建三個 label**：**Issues** 分頁 → **Labels** → **New label**，各建 `progress`、`question`、`prof`（顏色隨意）
+6. **clone 到你的機器**（GPU 機器與你自己的筆電都要）：
+   ```
+   git clone git@github.com:SigSpeechAI-NTNU/〔名字〕_〔題目簡稱〕.git
+   cd 〔名字〕_〔題目簡稱〕
+   ```
+   用 HTTPS 的話是 `https://github.com/SigSpeechAI-NTNU/〔名字〕_〔題目簡稱〕.git`。沒設過 SSH key 的，GitHub 的 Settings → SSH and GPG keys 照說明加一把
+7. **裝 uv 並建環境**：uv 的安裝照 <https://docs.astral.sh/uv/> 的一行指令；然後
+   ```
+   uv sync
+   ```
+   會建 `.venv` 並裝好 lock 檔的版本（第一次 lock 檔是空的，之後 `uv add` 會填）
+8. **改 README 開頭**：把最上面那段引言刪掉，`pyproject.toml` 的 `name` 改成題目簡稱小寫，「目的」段填題目
+9. **第一個 commit**：
+   ```
+   git add -A
+   git commit -m "init from student-template"
+   git push
+   ```
+10. **回 Lab-Hub 第 0 站**，開始跑 Round 1，報告存進 `research/`
+
+用 `gh` 指令的人，第 2–3 步可以一行：
+```
+gh repo create SigSpeechAI-NTNU/〔名字〕_〔題目簡稱〕 --template SigSpeechAI-NTNU/student-template --private --clone
+```
+
+卡在任何一步：先問 partner，再開 Lab-Hub 的 Issue（那表示這段說明寫得不夠清楚）。
+
 ## 目的
 
 **題目**：〔一句話〕
@@ -65,6 +107,8 @@ uv run scripts/run.sh configs/<run_id>.yaml
 | `pyproject.toml`、`uv.lock`、`.python-version` | 環境定義，uv 管；三個都進 git | 第 3＋4 站 §2 |
 
 ## 第一天要做的
+
+（建 repo 的逐步操作見上面「第 0 天」；這裡是建好之後的檢查清單）
 
 0. 這個 repo 在第 0 站（拿到題目）就建；Deep Research 的報告直接存進 `research/`。名字先用 Round 1 的題目簡稱，題目收斂後到 Settings 改名即可。所有東西都跟著題目走：題目結束時封存這個 repo，`notes/idea_log.md` 與 `notes/papers/` 複製到下一個題目的 repo
 1. 建三個 label：`progress`、`question`、`prof`（Issues → Labels）

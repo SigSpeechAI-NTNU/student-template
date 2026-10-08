@@ -18,19 +18,21 @@
 
 ## 安裝
 
+環境只用 [uv](https://docs.astral.sh/uv/)（lab 規定，不用 conda／pip）。`pyproject.toml`、`uv.lock`、`.python-version` 都在 repo 裡：
+
 ```
-〔conda create -n xxx python=3.xx〕
-pip install -r requirements.txt
-〔toolkit 的安裝或 submodule〕
+uv sync                                  # 建 .venv 並裝 lock 檔裡的精確版本
+〔非 Python 的依賴：sox、ffmpeg、CUDA 〔版本〕——怎麼裝〕
+〔toolkit：uv add 的套件名，或 fork 後 uv add --editable 的路徑與 commit hash〕
 ```
 
-環境：Python 〔版本〕、CUDA 〔版本〕、PyTorch 〔版本〕、〔toolkit 與版本〕、GPU 〔型號〕。
+環境：Python 〔.python-version〕、CUDA 〔版本〕、PyTorch 〔版本，哪個 CUDA index〕、〔toolkit 與版本〕、GPU 〔型號〕。
 資料與 checkpoint 不進 git，放在 `〔機器上的路徑〕`；資料集版本〔　〕、切分檔〔md5 或行數〕。
 
 ## 怎麼跑
 
 ```
-scripts/run.sh configs/<run_id>.yaml
+uv run scripts/run.sh configs/<run_id>.yaml
 ```
 
 | 要跑什麼 | config |
@@ -55,20 +57,22 @@ scripts/run.sh configs/<run_id>.yaml
 | `research/` | Deep Research 的報告：`<題目>_r1_<日期>_checked.md`、`<題目>_r2_<路線>_<日期>.md` 與其 CSV、`one_pager_<日期>.md` | 第 0、1 站 |
 | `design/` | 實驗設計：Table 1、消融表、method figure、決策紀錄；教授審過才開始寫程式 | 第 2 站 |
 | `configs/` | 每個 run 一個 config，檔名＝run_id（`YYYYMMDD_<短名>_s<seed>`） | 第 3＋4 站 |
-| `scripts/` | 訓練、評測、資料準備 | 第 3＋4 站 |
+| `scripts/` | 訓練、評測、資料準備；一律 `uv run` 執行 | 第 3＋4 站 |
 | `results/` | `results.csv`（一行一個 run，不刪列）、`error_analysis.csv` | 第 3＋4 站 |
 | `notes/` | `log.md` 日誌、`reproduce.md` 復現紀錄、`idea_log.md`、`papers/` 論文核對紀錄與 `reading_log.md` 淺讀 | 第 1b、3＋4 站、論文報告 |
 | `reports/` | 每週進度與論文報告的 `.qmd` 與 render 出的 `.html`；`figs/` 放圖 | 第 5 站、論文報告 |
 | `.github/ISSUE_TEMPLATE/` | 週報 Issue 與問題 Issue 的模板 | 第 5 站 |
+| `pyproject.toml`、`uv.lock`、`.python-version` | 環境定義，uv 管；三個都進 git | 第 3＋4 站 §2 |
 
 ## 第一天要做的
 
 0. 這個 repo 在第 0 站（拿到題目）就建；Deep Research 的報告直接存進 `research/`。名字先用 Round 1 的題目簡稱，題目收斂後到 Settings 改名即可。所有東西都跟著題目走：題目結束時封存這個 repo，`notes/idea_log.md` 與 `notes/papers/` 複製到下一個題目的 repo
 1. 建三個 label：`progress`、`question`、`prof`（Issues → Labels）
 2. 確認教授是 collaborator
-3. `.gitignore` 看一眼，資料路徑與 checkpoint 路徑不要進 git
-4. README 的「目的」「安裝」兩段第一個 run 之前填好；「目前結果」每週和週報一起更新
-5. 把 `reports/_template_progress.qmd` 複製成 `reports/progress_〔YYMMDD〕.qmd`（開會日期，例 `progress_261008.qmd`），第一週就用
+3. `uv sync` 建環境；之後加套件用 `uv add`，`pyproject.toml` 與 `uv.lock` 一起 commit
+4. `.gitignore` 看一眼，資料路徑與 checkpoint 路徑不要進 git
+5. README 的「目的」「安裝」兩段第一個 run 之前填好；「目前結果」每週和週報一起更新
+6. 把 `reports/_template_progress.qmd` 複製成 `reports/progress_〔YYMMDD〕.qmd`（開會日期，例 `progress_261008.qmd`），第一週就用
 
 ## 命名規則（照教材）
 

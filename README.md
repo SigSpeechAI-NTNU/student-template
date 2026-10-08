@@ -74,3 +74,7 @@ scripts/run.sh configs/<run_id>.yaml
 | 週報 | `reports/progress_<YYMMDD>.qmd`（開會日期）；Issue 標題 `<YYMMDD> 進度` |
 | 論文報告 | `reports/<會議>_<年份>_<第一作者的姓>.qmd`，全小寫（例 `icassp_2026_lee.qmd`；arXiv 用 `arxiv_2026_lee`）；核對紀錄同名放 `notes/papers/` |
 | idea card | `C<兩位數編號>`，全部在 `notes/idea_log.md` |
+
+## 授權
+
+本範本以 [CC BY 4.0](LICENSE) 授權，和 [Lab-Hub](https://github.com/SigSpeechAI-NTNU/Lab-Hub) 相同；其他實驗室可自由取用改成自己的版本，註明出處即可。從範本建出來的學生 repo 是你自己的，授權由你和教授決定。

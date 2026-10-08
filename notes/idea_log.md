@@ -2,6 +2,11 @@
 
 > 所有 card 照編號累積，退掉的也留。格式與退回代碼（BIG／DONE／DATA／DULL／VAGUE／GPU／LATER）見 Lab-Hub 1b `guides/ideation/idea_card.md`。
 
+## 預測紀錄
+| 日期 | card | 我的預測 | 教授的判斷 | 中？ | 我漏看的是什麼 |
+|---|---|---|---|---|---|
+
+
 # Card C01：〔一句話標題〕 〔YYYY-MM-DD〕 v1
 
 **來源**：〔1 文獻 gap／2 復現時的錯誤分析／3 應用場景痛點／4 跨領域移植／5 挑戰前提／教授／AI 建議，已核對〕

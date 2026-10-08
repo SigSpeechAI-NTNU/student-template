@@ -1,0 +1,1 @@
+# pip freeze > requirements.txt 之後把這行刪掉

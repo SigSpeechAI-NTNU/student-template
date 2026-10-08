@@ -1,0 +1,30 @@
+# 資料、模型、大檔不進 git
+data/
+datasets/
+checkpoints/
+ckpt/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.wav
+*.flac
+*.npy
+*.npz
+# 金鑰
+.env
+*.key
+*token*
+# Quarto 產物（html 要 commit，_files 不用）
+reports/*_files/
+.quarto/
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+# 大 log
+logs/
+*.log
+# OS
+.DS_Store

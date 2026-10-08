@@ -1,0 +1,48 @@
+# 〔名字〕_〔題目簡稱〕
+
+> 這是 SigSpeechAI-NTNU 的學生研究 repo 範本。從 GitHub 的 **Use this template** 建立自己的 repo，命名 `〔名字〕_〔題目簡稱〕`（例：`Kai-Jun_CtxBias`），設 private，把教授加為 collaborator，然後把這段提示刪掉、填下面的欄位。
+> 教材在 [Lab-Hub](https://github.com/SigSpeechAI-NTNU/Lab-Hub)；這個 repo 的每個資料夾對應那裡的一站。
+
+**題目**：〔一句話〕
+**對應的設計文件**：`design/〔題目〕_design_〔日期〕.md`
+**partner**：〔名字〕
+**目標會議與截稿日**：〔教授定〕
+
+## 怎麼跑
+
+```
+〔一行指令：scripts/run.sh configs/<run_id>.yaml〕
+```
+
+環境：Python 〔版本〕、CUDA 〔版本〕、〔toolkit 與版本〕；套件見 `requirements.txt`。資料與 checkpoint 不進 git，放在 `〔機器上的路徑〕`。
+
+## 結構
+
+| 資料夾 | 放什麼 | 對應教材 |
+|---|---|---|
+| `research/` | Deep Research 的報告：`<題目>_r1_<日期>_checked.md`、`<題目>_r2_<路線>_<日期>.md` 與其 CSV | 第 0、1 站 |
+| `design/` | 實驗設計：Table 1、消融表、method figure、決策紀錄；教授審過才開始寫程式 | 第 2 站 |
+| `configs/` | 每個 run 一個 config，檔名＝run_id（`YYYYMMDD_<短名>_s<seed>`） | 第 3＋4 站 |
+| `scripts/` | 訓練、評測、資料準備 | 第 3＋4 站 |
+| `results/` | `results.csv`（一行一個 run，不刪列）、`error_analysis.csv` | 第 3＋4 站 |
+| `notes/` | `log.md` 日誌、`reproduce.md` 復現紀錄、`idea_log.md`、`papers/` 論文核對紀錄 | 第 1b、3＋4 站、論文報告 |
+| `reports/` | 每週進度與論文報告的 `.qmd` 與 render 出的 `.html`；`figs/` 放圖 | 第 5 站、論文報告 |
+| `.github/ISSUE_TEMPLATE/` | 週報 Issue 與問題 Issue 的模板 | 第 5 站 |
+
+## 第一天要做的
+
+1. 建三個 label：`progress`、`question`、`prof`（Issues → Labels）
+2. 確認教授是 collaborator
+3. `.gitignore` 看一眼，資料路徑與 checkpoint 路徑不要進 git
+4. 把 `reports/_template_progress.qmd` 複製成 `reports/2026-W〔NN〕.qmd`，第一週就用
+
+## 命名規則（照教材）
+
+| 東西 | 命名 |
+|---|---|
+| Deep Research 報告 | `<題目>_r1_<日期>.md` → 核對後 `<題目>_r1_<日期>_checked.md`；`<題目>_r2_<路線>_<日期>.md` |
+| 設計文件 | `<題目>_design_<日期>.md` |
+| run | `YYYYMMDD_<短名>_s<seed>`；config、log 同名 |
+| 週報 | `reports/YYYY-W<NN>.qmd`；Issue 標題 `W<NN> 進度` |
+| 論文報告 | `reports/paper_<第一作者>_<年份>.qmd`；核對紀錄 `notes/papers/<第一作者>_<年份>_<短名>.md` |
+| idea card | `C<兩位數編號>`，全部在 `notes/idea_log.md` |

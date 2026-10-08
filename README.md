@@ -22,7 +22,7 @@
    - **Private**（一定要）
    - 「Include all branches」不用勾
    - 按 **Create repository**
-4. **加教授為 collaborator**：新 repo 的 **Settings** → 左側 **Collaborators and teams** → **Add people** → 輸入教授的 GitHub 帳號 → Role 選 **Write** 以上 → Add。教授看不到你的 repo，之後的 Issue 他也看不到
+4. **加教授為 collaborator**：新 repo 的 **Settings** → 左側 **Collaborators and teams** → **Add people** → 輸入教授的 GitHub 帳號 `hungshinlee` → Role 選 **Write** 以上 → Add。教授看不到你的 repo，之後的 Issue 他也看不到
 5. **建三個 label**：**Issues** 分頁 → **Labels** → **New label**，各建 `progress`、`question`、`prof`（顏色隨意）
 6. **clone 到你的機器**（GPU 機器與你自己的筆電都要）：
    ```

@@ -25,7 +25,7 @@
 | `configs/` | 每個 run 一個 config，檔名＝run_id（`YYYYMMDD_<短名>_s<seed>`） | 第 3＋4 站 |
 | `scripts/` | 訓練、評測、資料準備 | 第 3＋4 站 |
 | `results/` | `results.csv`（一行一個 run，不刪列）、`error_analysis.csv` | 第 3＋4 站 |
-| `notes/` | `log.md` 日誌、`reproduce.md` 復現紀錄、`idea_log.md`、`papers/` 論文核對紀錄 | 第 1b、3＋4 站、論文報告 |
+| `notes/` | `log.md` 日誌、`reproduce.md` 復現紀錄、`idea_log.md`、`papers/` 論文核對紀錄與 `reading_log.md` 淺讀 | 第 1b、3＋4 站、論文報告 |
 | `reports/` | 每週進度與論文報告的 `.qmd` 與 render 出的 `.html`；`figs/` 放圖 | 第 5 站、論文報告 |
 | `.github/ISSUE_TEMPLATE/` | 週報 Issue 與問題 Issue 的模板 | 第 5 站 |
 

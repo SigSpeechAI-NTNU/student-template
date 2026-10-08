@@ -1,11 +1,11 @@
 ---
 name: 週報
 about: 每週 group meeting 前開；教授的回饋記在下面的留言
-title: "W〔NN〕 進度"
+title: "〔YYMMDD〕 進度"
 labels: progress
 ---
 
-投影片：`reports/〔YYYY-WNN〕.html`
+投影片：`reports/progress_〔YYMMDD〕.html`
 
 上週教授回饋（#〔上週 Issue〕）：〔引用〕
 

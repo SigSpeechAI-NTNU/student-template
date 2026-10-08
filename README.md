@@ -34,7 +34,7 @@
 1. 建三個 label：`progress`、`question`、`prof`（Issues → Labels）
 2. 確認教授是 collaborator
 3. `.gitignore` 看一眼，資料路徑與 checkpoint 路徑不要進 git
-4. 把 `reports/_template_progress.qmd` 複製成 `reports/2026-W〔NN〕.qmd`，第一週就用
+4. 把 `reports/_template_progress.qmd` 複製成 `reports/progress_〔YYMMDD〕.qmd`（開會日期，例 `progress_261008.qmd`），第一週就用
 
 ## 命名規則（照教材）
 
@@ -43,6 +43,6 @@
 | Deep Research 報告 | `<題目>_r1_<日期>.md` → 核對後 `<題目>_r1_<日期>_checked.md`；`<題目>_r2_<路線>_<日期>.md` |
 | 設計文件 | `<題目>_design_<日期>.md` |
 | run | `YYYYMMDD_<短名>_s<seed>`；config、log 同名 |
-| 週報 | `reports/YYYY-W<NN>.qmd`；Issue 標題 `W<NN> 進度` |
-| 論文報告 | `reports/paper_<第一作者>_<年份>.qmd`；核對紀錄 `notes/papers/<第一作者>_<年份>_<短名>.md` |
+| 週報 | `reports/progress_<YYMMDD>.qmd`（開會日期）；Issue 標題 `<YYMMDD> 進度` |
+| 論文報告 | `reports/<會議>_<年份>_<第一作者的姓>.qmd`，全小寫（例 `icassp_2026_lee.qmd`；arXiv 用 `arxiv_2026_lee`）；核對紀錄同名放 `notes/papers/` |
 | idea card | `C<兩位數編號>`，全部在 `notes/idea_log.md` |

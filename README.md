@@ -57,7 +57,7 @@ scripts/run.sh configs/<run_id>.yaml
 
 ## 第一天要做的
 
-0. 這個 repo 在第 0 站（拿到題目）就建；Deep Research 的報告直接存進 `research/`
+0. 這個 repo 在第 0 站（拿到題目）就建；Deep Research 的報告直接存進 `research/`。名字先用 Round 1 的題目簡稱，題目收斂後到 Settings 改名即可。所有東西都跟著題目走：題目結束時封存這個 repo，`notes/idea_log.md` 與 `notes/papers/` 複製到下一個題目的 repo
 1. 建三個 label：`progress`、`question`、`prof`（Issues → Labels）
 2. 確認教授是 collaborator
 3. `.gitignore` 看一眼，資料路徑與 checkpoint 路徑不要進 git

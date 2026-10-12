@@ -1,0 +1,231 @@
+/*-- scss:defaults --*/
+
+// ═══════════════════════════════════════════════════════════════
+// Lab-Hub 投影片樣式：進度報告（8 頁）與論文報告（13 頁）共用
+// ═══════════════════════════════════════════════════════════════
+// 正本在 student-template/reports/theme.scss，跟著學生 repo 走；
+// 兩份 qmd 範本的 YAML 已設 `theme: [default, theme.scss]`，不用自己調。
+// 改自教授課程投影片的 theme（hungshinlee/Speech-AI，slides/theme.scss），
+// 拿掉教室專用的部分（提問框、音訊播放器），其餘五級字級系統不變。
+// 怎麼用見 Lab-Hub 第 5 站 §4.4。**不要改這個檔**：覺得哪裡不對，開 Lab-Hub 的 Issue。
+//
+// 字級五級，錨在內文 26px，級距約 1.2。**全部用 deck 內的絕對 px。**
+// reveal 會把整個 1280×800 畫布等比縮到投影機，所以在 .slides 之內
+// px 是可預測的；用 em 才會與祖先疊乘。唯一的例外是 .footer 與
+// .slide-number，它們畫在縮放容器「之外」，必須用 vw（見 rules 段）。
+//
+// | 級 | token        | px | 給誰                                        |
+// |----|--------------|----|---------------------------------------------|
+// | T1 | $fs-title    | 42 | h2 投影片標題；.metrics 的數字                |
+// | T2 | $fs-lead     | 31 | .claim：一張投影片的那句話                    |
+// | T3 | $fs-body     | 26 | bullet、段落、display math，預設值             |
+// | T4 | $fs-support  | 22 | 表格、程式碼、.small                          |
+// | T5 | $fs-meta     | 18 | .cite、.tag、.meta、.footer、.metrics 的標籤   |
+//
+// **兩條使用規則，比數字重要：**
+// 1. 一張投影片最多用四級。
+// 2. **T2（.claim）一張最多出現一次。** 版面溢出的成因幾乎都是一張表格（T4）
+//    後面疊了兩個 .claim。
+// 塞不下的時候砍內容，不要縮字——教授坐在後排。
+$fs-title:   42px !default;
+$fs-lead:    31px !default;
+$fs-body:    26px !default;
+$fs-support: 22px !default;
+$fs-meta:    18px !default;
+$fs-section: 52px !default;   // 章節分隔頁的 h1，自成一級（論文報告通常用不到）
+
+// 行高與字級反向：字越大行距越緊
+$lh-title:   1.20 !default;
+$lh-lead:    1.35 !default;
+$lh-body:    1.42 !default;
+$lh-support: 1.34 !default;
+$lh-meta:    1.30 !default;
+
+$presentation-font-size-root: $fs-body !default;
+$presentation-h1-font-size:   $fs-section !default;
+$presentation-h2-font-size:   $fs-title !default;
+$presentation-h3-font-size:   $fs-lead !default;
+$presentation-heading-font-weight: 700 !default;
+$presentation-heading-color: #111827 !default;
+$presentation-line-height:  $lh-body !default;
+
+$body-color: #1f2328 !default;
+$body-bg:    #ffffff !default;
+$link-color: #0b5cad !default;
+$code-block-font-size: .85em !default;   // 26 × .85 ≈ T4
+
+// 論文報告的本體是英文、進度報告是中文，同一組字型兩邊都能用
+$font-family-sans-serif:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+  "PingFang TC", "Noto Sans TC", sans-serif !default;
+
+/*-- scss:rules --*/
+
+$c-accent: #0b5cad;   // 主色：標題框線、.claim 左邊、強調
+$c-warn:   #dc2626;   // 卡住、退步、沒對上
+$c-ok:     #15803d;   // 對上了、達標
+$c-muted:  #6b7280;   // 出處、標籤、次要資訊
+
+.reveal .slides section {
+  text-align: left;
+}
+
+// 標題留白收緊，換取內容字級
+.reveal h2 {                       // T1
+  margin-bottom: .55em;
+  padding-bottom: .22em;
+  border-bottom: 2px solid #e5e7eb;
+  line-height: $lh-title;
+}
+.reveal h3 {                       // T2
+  color: #374151;
+  margin-bottom: .4em;
+  line-height: $lh-lead;
+}
+// T3 內文由 $presentation-font-size-root 提供。
+// 某一段要局部降級時用 .small（T4）或 .meta（T5）；不要用 Quarto 的 {.smaller}，
+// 它會把內文縮掉、標題卻不縮，表格大小也會跟著漂。
+.reveal .small { font-size: $fs-support; line-height: $lh-support; }
+.reveal .meta  { font-size: $fs-meta;    line-height: $lh-meta; color: $c-muted; }
+
+// ── 主張框：一張投影片的那句話 ─────────────────────────────
+// 論文報告第 1 頁 One-sentence claim、進度報告「本週關鍵結果」的結論用它。
+// .warn 給「卡住」與沒對上的數字；.ok 給復現對上、達標。
+.reveal .claim {
+  border-left: 6px solid $c-accent;
+  background: #f8fafc;
+  padding: .7em .95em;
+  margin: .78em 0;
+  font-size: $fs-lead;             // T2
+  line-height: $lh-lead;
+  strong { color: $c-accent; }
+}
+.reveal .claim.warn {
+  border-left-color: $c-warn;
+  background: #fef2f2;
+  strong { color: $c-warn; }
+}
+.reveal .claim.ok {
+  border-left-color: $c-ok;
+  background: #f0fdf4;
+  strong { color: $c-ok; }
+}
+
+// ── 數字卡：主結果、本週關鍵結果只有一兩個數字時用 ──────────
+// 數字用 T1、標籤用 T5，不另開一級。.good／.bad 標方向（WER 降是 good）。
+.reveal .metrics {
+  display: flex;
+  gap: 1.1em;
+  margin: .7em 0;
+  .metric {
+    flex: 1;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 7px;
+    padding: .5em .7em;
+    background: #fff;
+  }
+  .num { display: block; font-size: $fs-title; font-weight: 700; line-height: 1.1; }
+  .lab { display: block; font-size: $fs-meta; line-height: $lh-meta; color: $c-muted; margin-top: .25em; }
+  .bad  .num { color: $c-warn; }
+  .good .num { color: $c-ok; }
+}
+
+// ── 表格 ────────────────────────────────────────────────────
+// **一個表格只有一個字級**，由角色決定：
+//   預設          T4 $fs-support —— 資料與佐證（Table 1 現況、主結果、消融、對帳）
+//   `::: {.prose}` T3 $fs-body   —— 格子是整句話、表格就是這頁的內容（設定與公平性）
+// th 不另給字級：字重、底色、下框線已經夠分辨。
+// 明確覆寫 th/td，避免任何祖先的 em 疊乘。
+.reveal table {
+  border-collapse: collapse;
+  font-size: $fs-support;
+
+  th, td {
+    font-size: $fs-support;
+    line-height: $lh-support;
+    padding: .42em .62em;
+    vertical-align: top;
+  }
+  th {
+    background: #f6f8fa;
+    font-weight: 650;
+    border-bottom: 2px solid #d1d5db;
+  }
+  tbody tr + tr td { border-top: 1px solid #eef1f4; }
+
+  // 第一欄通常是方法名或短標籤，不換行讀起來整齊。
+  // 首欄很長（例如完整的方法名）會把表格推寬：那頁加 ::: {.wrap} 讓它換行。
+  td:first-child, th:first-child { white-space: nowrap; }
+}
+.reveal .wrap table {
+  td:first-child, th:first-child { white-space: normal; }
+}
+
+// 論述型表格：格子是句子，而且這頁的內容就是這個表格
+.reveal .prose table {
+  font-size: $fs-body;
+  th, td { font-size: $fs-body; line-height: $lh-body; }
+  td:first-child, th:first-child { white-space: normal; }
+}
+
+// ── 出處 ────────────────────────────────────────────────────
+// 每張圖、每個數字的出處用它：[取自原論文 Fig. 2，標註為本人所加]{.cite}
+.reveal .cite {                    // T5
+  font-size: $fs-meta;
+  color: $c-muted;
+  line-height: $lh-meta;
+}
+
+// .footer 與頁碼由 reveal 畫在「縮放容器之外」的頁面層，transform 不會作用到它們。
+// 用 em 的話，桌機 scale=1 看起來正常，但手機橫向 scale≈0.51 時就等於放大兩倍，
+// 會蓋住頁碼與板書按鈕。改用 vw 讓它隨視窗寬度縮放。
+.reveal .footer {
+  box-sizing: border-box;     // 少了這行，padding 會加在 100% 寬之外而衝出畫面
+  width: auto !important;     // Quarto 的 footer.css 設了 width: 100%：不蓋掉，right 會被忽略，文字中心偏右
+  left: 16% !important;       // 讓出左下角的控制列
+  right: 16% !important;      // 讓出右下角的頁碼；left、right 相同，再加上 width: auto，才會真的置中
+  bottom: 1.1em !important;
+  padding: 0 !important;
+  text-align: center;
+  white-space: normal !important;   // Quarto 預設 nowrap，長引用會溢出盒子外
+
+  // 目標是在 1280px 寬的視窗下落在 T5（18px）附近：1280 × 1.45% ≈ 18.6px。
+  // 這是整份 theme 唯一不能用 $fs-meta 的地方。
+  font-size: clamp(10px, 1.45vw, 19px) !important;
+  color: $c-muted;
+  line-height: $lh-meta;
+}
+.reveal .slide-number {
+  // 刻意低於 T5：它是介面，不是內容。
+  font-size: clamp(9px, 1.1vw, 15px) !important;
+}
+.reveal .dim { color: $c-muted; }
+
+// ── 標籤：來源標記（AI／✓／我）、run_id、退回代碼 ──────────────
+.reveal .tag {
+  display: inline-block;
+  font-size: $fs-meta;             // T5
+  font-weight: 650;
+  padding: .12em .5em;
+  border-radius: 20px;
+  background: #eef2ff;
+  color: #3730a3;
+  vertical-align: middle;
+}
+.reveal .tag.ok   { background: #f0fdf4; color: $c-ok; }
+.reveal .tag.warn { background: #fef2f2; color: $c-warn; }
+
+// 圖片不要被 reveal 的預設邊框與陰影干擾
+.reveal section img { border: none; box-shadow: none; margin: .3em 0; background: none; }
+
+// ── 章節分隔頁 ──────────────────────────────────────────────
+.reveal .section-title h1 {
+  border-left: 10px solid $c-accent;
+  padding-left: .5em;
+  font-size: $fs-section;
+  line-height: $lh-title;
+}
+.reveal .section-title { padding-top: 1.2em; }
+
+// 兩欄：圖在左、三行說明在右（第 5、6 頁常用）
+.reveal .columns { align-items: flex-start; }

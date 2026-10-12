@@ -1,9 +1,11 @@
 ---
+# 複製成 reports/progress_YYMMDD.qmd（開會日期，例 progress_261008.qmd）。8 頁固定，見 Lab-Hub 第 5 站 §3；樣式用 theme.scss，類別見 §4.4。render：quarto render reports/progress_261008.qmd；簡報時按 S 看講稿
 title: "〔題目簡稱〕 進度 〔YYMMDD〕"
 author: "〔名字〕"
 date: "〔YYYY-MM-DD〕"
 format:
   revealjs:
+    theme: [default, theme.scss]
     width: 1280
     height: 800
     margin: 0.04
@@ -31,7 +33,6 @@ format:
           </script>
 ---
 
-<!-- 複製成 reports/progress_YYMMDD.qmd（開會日期，例 progress_261008.qmd）。8 頁固定，見 Lab-Hub 第 5 站 §3。render：quarto render reports/progress_261008.qmd；簡報時按 S 看講稿 -->
 
 ## 問題定義
 
@@ -75,11 +76,19 @@ format:
 
 〔一張圖或一張小表，只放最重要的一個〕
 
+::: {.claim}
+〔結論一句〕
+:::
+
 ::: {.notes}
 〔這個結果代表什麼、和預期差在哪〕
 :::
 
 ## 卡住
+
+::: {.claim .warn}
+〔卡住的那句〕
+:::
 
 - 問題：〔　〕
 - 試過：〔　〕

@@ -117,6 +117,11 @@ uv run scripts/run.sh configs/<run_id>.yaml
 4. `.gitignore` 看一眼，資料路徑與 checkpoint 路徑不要進 git
 5. README 的「目的」「安裝」兩段第一個 run 之前填好；「目前結果」每週和週報一起更新
 6. 把 `reports/_template_progress.qmd` 複製成 `reports/progress_〔YYMMDD〕.qmd`（開會日期，例 `progress_261008.qmd`），第一週就用
+7. **參與產學計畫的話**（規則見 Lab-Hub [產學分支](https://github.com/SigSpeechAI-NTNU/Lab-Hub/blob/main/guides/industry_project/industry_track.md) §3.2、§4）：
+   - 產業方給的原檔（音檔、逐字稿、原始需求文件、來信）不放進這個 repo。`.gitignore` 只擋音檔、不擋文字檔，不能靠它
+   - `results/error_analysis.csv` 在產業方資料上只填 `sample_id`、`category`、`human_can_tell`、`note`，`reference` 與 `hypothesis` 留空；代表樣本寫 `sample_id` 加一句不含原文的描述
+   - 需求規格表、月報、驗收結果（`acceptance.csv`）放 group 的專案 repo，不放這裡
+   - 每週進度報告從第 3 站就開始；第 2 站之前第 1、2、4 頁放什麼，見產學分支 §4
 
 ## 命名規則（照教材）
 

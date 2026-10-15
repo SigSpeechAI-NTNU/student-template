@@ -1,5 +1,6 @@
 ---
 # 複製成 reports/progress_YYMMDD.qmd（開會日期，例 progress_261008.qmd）。8 頁固定，見 Lab-Hub 第 5 站 §3；樣式用 theme.scss，類別見 §4.4。render：quarto render reports/progress_261008.qmd；簡報時按 S 看講稿
+# 產學計畫的學生從第 3 站就開始報：第 2 站之前，第 1 頁畫需求規格表第 1 格、第 2 頁畫正在驗收的方法架構、第 4 頁放驗收狀態表（Lab-Hub 產學分支 §4）
 title: "〔題目簡稱〕 進度 〔YYMMDD〕"
 author: "〔名字〕"
 date: "〔YYYY-MM-DD〕"

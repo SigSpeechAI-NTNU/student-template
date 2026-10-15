@@ -1,10 +1,11 @@
 /*-- scss:defaults --*/
 
 // ═══════════════════════════════════════════════════════════════
-// Lab-Hub 投影片樣式：進度報告（8 頁）與論文報告（13 頁）共用
+// Lab-Hub 投影片樣式：進度報告（8 頁）、論文報告（13 頁）與產學月報（6 頁）共用
 // ═══════════════════════════════════════════════════════════════
 // 正本在 student-template/reports/theme.scss，跟著學生 repo 走；
-// 兩份 qmd 範本的 YAML 已設 `theme: [default, theme.scss]`，不用自己調。
+// 進度與論文兩份 qmd 範本的 YAML 已設 `theme: [default, theme.scss]`，不用自己調；
+// 產學月報的模板在 Lab-Hub 的 guides/industry_project/templates/，用的也是這一份。
 // 改自教授課程投影片的 theme（hungshinlee/Speech-AI，slides/theme.scss），
 // 拿掉教室專用的部分（提問框、音訊播放器），其餘五級字級系統不變。
 // 怎麼用見 Lab-Hub 第 5 站 §4.4。**不要改這個檔**：覺得哪裡不對，開 Lab-Hub 的 Issue。

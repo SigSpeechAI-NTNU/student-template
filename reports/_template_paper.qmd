@@ -1,5 +1,5 @@
 ---
-# 複製成 reports/<會議>_<年份>_<第一作者的姓>.qmd，全小寫（例 icassp_2026_lee.qmd）。13 頁固定（第 4–7 頁順序：架構 → 推論 → 訓練 → 走線），見 Lab-Hub 論文報告教材 §3。樣式用 theme.scss，類別見第 5 站 §4.4。
+# 複製成 reports/<會議>_<年份>_<第一作者的姓>.qmd，全小寫（例 icassp_2026_lee.qmd）。13 頁固定（第 4–7 頁順序：架構 → 推論 → 訓練 → 走線），見 Lab-Hub 論文報告教材 §3。樣式用 theme.scss，類別見第 5 站 §4.4。已開 embed-resources，render 出的 html 是單一檔，連同 qmd 一起 commit。
 # 通常由 AI 依 §4.3 指令產生草稿；第 7、12、13 頁 AI 不生，自己寫。投影片本體英文、講稿中文。每頁講稿分【講述】與【提示】，【提示】後面要空一行
 title: "〔論文短名〕"
 subtitle: "〔作者，會議 年份〕"
@@ -8,6 +8,7 @@ date: "〔YYYY-MM-DD〕"
 format:
   revealjs:
     theme: [default, theme.scss]
+    embed-resources: true
     width: 1280
     height: 800
     margin: 0.04

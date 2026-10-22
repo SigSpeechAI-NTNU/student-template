@@ -1,0 +1,6 @@
+% 紅字佔位。在 main.tex 的 preamble 最後（\begin{document} 前一行）加 \input{placeholders}
+% 投稿前在 repo 根目錄跑 grep -rnE 'NEEDNUM|NEEDCITE' paper/sections paper/tables，必須沒有輸出
+% 見 Lab-Hub 第 6 站 guides/paper_writing/table1_to_paper.md §1.3
+\usepackage{xcolor}
+\newcommand{\NEEDNUM}[1]{\textcolor{red}{\textbf{[NUM: #1]}}}
+\newcommand{\NEEDCITE}[1]{\textcolor{red}{\textbf{[CITE: #1]}}}

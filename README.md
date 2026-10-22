@@ -100,8 +100,9 @@ uv run scripts/run.sh configs/<run_id>.yaml
 | `configs/` | 每個 run 一個 config，檔名＝run_id（`YYYYMMDD_<短名>_s<seed>`） | 第 3＋4 站 |
 | `scripts/` | 訓練、評測、資料準備；一律 `uv run` 執行 | 第 3＋4 站 |
 | `results/` | `results.csv`（一行一個 run，不刪列）、`error_analysis.csv` | 第 3＋4 站 |
-| `notes/` | `log.md` 日誌、`reproduce.md` 復現紀錄、`idea_log.md`、`papers/` 論文核對紀錄與 `reading_log.md` 淺讀 | 第 1b、3＋4 站、論文報告 |
+| `notes/` | `log.md` 日誌、`reproduce.md` 復現紀錄、`idea_log.md`、`papers/` 論文核對紀錄與 `reading_log.md` 淺讀、`writing_errors.md` 我的英文錯誤類別 | 第 1b、3＋4、6 站、論文報告 |
 | `reports/` | 每週進度與論文報告的 `.qmd` 與 render 出的 `.html`；`figs/` 放圖；`theme.scss` 是 lab 的投影片樣式，不要改 | 第 5 站、論文報告 |
+| `paper/` | 論文：一節一檔的 LaTeX（`sections/`、`tables/`、`figures/`）、`refs.bib`、`results/index.md` 每個數字的出處、`venue.md` 投稿規定、`plan.md` 主張與篇幅（教授審過才寫正文）、`ai_use.md`、`reviews/` 冷讀與盲讀；`build/` 不進 git。用法見 `paper/README.md` | 第 6 站 |
 | `.github/ISSUE_TEMPLATE/` | 週報 Issue 與問題 Issue 的模板 | 第 5 站 |
 | `pyproject.toml`、`uv.lock`、`.python-version` | 環境定義，uv 管；三個都進 git | 第 3＋4 站 §2 |
 
@@ -109,7 +110,7 @@ uv run scripts/run.sh configs/<run_id>.yaml
 
 （建 repo 的逐步操作見上面「第 0 天」；這裡是建好之後的檢查清單）
 
-0. 這個 repo 在第 0 站（拿到題目）就建；Deep Research 的報告直接存進 `research/`。名字先用 Round 1 的題目簡稱，題目收斂後到 Settings 改名即可。所有東西都跟著題目走：題目結束時封存這個 repo，`notes/idea_log.md` 與 `notes/papers/` 複製到下一個題目的 repo
+0. 這個 repo 在第 0 站（拿到題目）就建；Deep Research 的報告直接存進 `research/`。名字先用 Round 1 的題目簡稱，題目收斂後到 Settings 改名即可。所有東西都跟著題目走：題目結束時封存這個 repo，`notes/idea_log.md`、`notes/papers/` 與 `notes/writing_errors.md` 複製到下一個題目的 repo
 1. 建三個 label：`progress`、`question`、`prof`（Issues → Labels）
 2. 確認教授是 collaborator
 3. `uv sync` 建環境；之後加套件用 `uv add`，`pyproject.toml` 與 `uv.lock` 一起 commit
@@ -132,6 +133,7 @@ uv run scripts/run.sh configs/<run_id>.yaml
 | 週報 | `reports/progress_<YYMMDD>.qmd`（開會日期）；Issue 標題 `<YYMMDD> 進度` |
 | 論文報告 | `reports/<會議>_<年份>_<第一作者的姓>.qmd`，全小寫（例 `icassp_2026_lee.qmd`；arXiv 用 `arxiv_2026_lee`）；核對紀錄同名放 `notes/papers/` |
 | idea card | `C<兩位數編號>`，全部在 `notes/idea_log.md` |
+| 論文 | 一節一檔 `paper/sections/<節>.tex`、一表一檔 `paper/tables/tab_<名>.tex`；冷讀與盲讀 `paper/reviews/self-<n>/review.md`、`paper/reviews/partner-<n>/review.md`；投出去的版本打 tag `submitted-<會議><年份>`（例 `submitted-icml2027`） |
 
 ## 授權
 

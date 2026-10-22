@@ -3,7 +3,6 @@
 [![Lab-Hub](https://img.shields.io/badge/教材-Lab--Hub-1565C0?logo=github&logoColor=white)](https://github.com/SigSpeechAI-NTNU/Lab-Hub)
 [![Template](https://img.shields.io/badge/Use%20this-template-6A1B9A?logo=github&logoColor=white)](https://github.com/SigSpeechAI-NTNU/student-template/generate)
 [![Quarto](https://img.shields.io/badge/Slides-Quarto-75AADB?logo=quarto&logoColor=white)](https://quarto.org)
-[![Made with Claude](https://img.shields.io/badge/Made%20with-Claude-D97757?logo=anthropic&logoColor=white)](https://claude.ai)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey?logo=creativecommons&logoColor=white)](LICENSE)
 
 > 這是 SigSpeechAI-NTNU 的學生研究 repo 範本。從 GitHub 的 **Use this template** 建立自己的 repo，命名 `〔名字〕_〔題目簡稱〕`（例：`Kai-Jun_CtxBias`），設 private，把教授加為 collaborator，然後把這段提示刪掉、填下面的欄位。
@@ -136,4 +135,4 @@ uv run scripts/run.sh configs/<run_id>.yaml
 
 ## 授權
 
-本範本以 [CC BY 4.0](LICENSE) 授權，和 [Lab-Hub](https://github.com/SigSpeechAI-NTNU/Lab-Hub) 相同；其他實驗室可自由取用改成自己的版本，註明出處即可。從範本建出來的學生 repo 是你自己的，授權由你和教授決定。
+本範本以 [CC BY 4.0](LICENSE) 授權（[Lab-Hub](https://github.com/SigSpeechAI-NTNU/Lab-Hub) 的教材是 CC BY-SA 4.0；範本不加 SA，你從範本建的 repo 日後公開時，不必跟著用相同授權）；其他實驗室可自由取用改成自己的版本，註明出處即可。從範本建出來的學生 repo 是你自己的，授權由你和教授決定。

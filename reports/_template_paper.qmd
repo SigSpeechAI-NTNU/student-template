@@ -1,6 +1,6 @@
 ---
-# 複製成 reports/<會議>_<年份>_<第一作者的姓>.qmd，全小寫（例 icassp_2026_lee.qmd）。13 頁固定（第 4–7 頁順序：架構 → 推論 → 訓練 → 走線），見 Lab-Hub 論文報告教材 §3。樣式用 theme.scss，類別見第 5 站 §4.4。已開 embed-resources，render 出的 html 是單一檔，連同 qmd 一起 commit。
-# 通常由 AI 依 §4.3 指令產生草稿；第 7、12、13 頁 AI 不生，自己寫。投影片本體英文、講稿中文。每頁講稿分【講述】與【提示】，【提示】後面要空一行
+# 複製成 reports/<會議>_<年份>_<第一作者的姓>.qmd，全小寫（例 icassp_2026_lee.qmd）。13 段、每段頁數不限：下面 13 個 ## 是每段的第一頁，標題固定；同一段加的頁標題寫「段標題: 子題」（例 ## Architecture: biasing module）。第 4–7 段順序：架構 → 推論 → 訓練 → 走線。見 Lab-Hub 論文報告教材 §3。樣式用 theme.scss，類別見第 5 站 §4.4。已開 embed-resources，render 出的 html 是單一檔，連同 qmd 一起 commit。
+# 通常由 AI 依 §4.3 指令產生草稿；第 7、12、13 段 AI 不生，自己寫。有官方 repo 就對回程式，出處標法見教材 §5b。投影片本體英文、講稿中文。每頁講稿分【講述】與【提示】，【提示】後面要空一行
 title: "〔論文短名〕"
 subtitle: "〔作者，會議 年份〕"
 author: "〔名字〕"
@@ -46,7 +46,7 @@ On 〔task〕, 〔method〕 improves 〔metric〕 on 〔dataset〕 from 〔A〕 
 [〔Authors〕, 〔venue〕 〔year〕 · 〔URL〕]{.cite}
 
 ::: {.notes}
-**【講述】**（約 1 分鐘）
+**【講述】**
 
 〔為什麼挑這篇〕
 
@@ -60,7 +60,7 @@ On 〔task〕, 〔method〕 improves 〔metric〕 on 〔dataset〕 from 〔A〕 
 ![The conventional pipeline](figs/background.png)
 
 ::: {.notes}
-**【講述】**（約 1.5 分鐘）
+**【講述】**
 
 〔原本怎麼做〕
 
@@ -76,7 +76,7 @@ On 〔task〕, 〔method〕 improves 〔metric〕 on 〔dataset〕 from 〔A〕 
 Example: 〔input〕 → 〔wrong output〕
 
 ::: {.notes}
-**【講述】**（約 1.5 分鐘）
+**【講述】**
 
 〔這個例子為什麼錯〕
 
@@ -92,14 +92,17 @@ Example: 〔input〕 → 〔wrong output〕
 [From the paper, Fig. 〔N〕; annotations mine]{.cite}
 
 ::: {.notes}
-**【講述】**（約 2 分鐘）
+**【講述】**
 
 〔輸入、輸出、每個模組一句〕
 
 **【提示】**
 
 - 每個模組對應 §〔　〕
+- 對回官方程式：〔永久連結；沒有官方 repo 寫「無」〕
 :::
+
+<!-- 一頁講不清楚就在這裡加頁：## Architecture: 〔子模組〕，節點名稱和上面的總圖一致。其他段同理，見教材 §3「什麼時候加頁」 -->
 
 ## Inference
 
@@ -109,13 +112,14 @@ Example: 〔input〕 → 〔wrong output〕
 - Not used at inference: 〔　〕
 
 ::: {.notes}
-**【講述】**（約 1.5 分鐘）
+**【講述】**
 
 〔一個輸入進去怎麼變成輸出；先講這頁再講訓練〕
 
 **【提示】**
 
 - 論文未說明的部分：〔　〕
+- 對回官方程式：〔永久連結；沒有官方 repo 寫「無」〕
 :::
 
 ## Training
@@ -126,13 +130,14 @@ Example: 〔input〕 → 〔wrong output〕
 - Differs from inference: 〔teacher forcing / training-only parts〕
 
 ::: {.notes}
-**【講述】**（約 2 分鐘）
+**【講述】**
 
 〔資料從哪來、算什麼損失、更新什麼、凍結什麼；和推論哪裡不同〕
 
 **【提示】**
 
 - 出處：§〔　〕
+- 對回官方程式：〔永久連結；沒有官方 repo 寫「無」〕
 :::
 
 ## Trace one example
@@ -140,13 +145,13 @@ Example: 〔input〕 → 〔wrong output〕
 ![One example traced through the model](figs/arch_trace.png)
 
 ::: {.notes}
-**【講述】**（約 2 分鐘）
+**【講述】**
 
 〔自己寫：例子是什麼 → 每個模組進去是什麼、出來是什麼、形狀怎麼變 → 輸出〕
 
 **【提示】**
 
-- 形狀對回符號表：〔　〕
+- 形狀對回符號表或官方程式：〔　〕
 - 我的推測（論文未明說）：〔　〕
 :::
 
@@ -157,7 +162,7 @@ Example: 〔input〕 → 〔wrong output〕
 - Params / compute: 〔　〕
 
 ::: {.notes}
-**【講述】**（約 0.5 分鐘）
+**【講述】**
 
 〔你的推理，之後和消融表對〕
 
@@ -181,7 +186,7 @@ Example: 〔input〕 → 〔wrong output〕
 :::
 
 ::: {.notes}
-**【講述】**（約 1.5 分鐘）
+**【講述】**
 
 〔哪裡不公平〕
 
@@ -195,7 +200,7 @@ Example: 〔input〕 → 〔wrong output〕
 〔Main table, 3–5 rows, key numbers in bold; cite table number〕
 
 ::: {.notes}
-**【講述】**（約 2 分鐘）
+**【講述】**
 
 〔贏多少、哪裡贏最多、哪裡沒贏〕
 
@@ -213,9 +218,9 @@ Example: 〔input〕 → 〔wrong output〕
 [From the paper, Fig. 〔N〕]{.cite}
 
 ::: {.notes}
-**【講述】**（約 1.5 分鐘）
+**【講述】**
 
-〔消融有沒有驗證第 8 頁的推理；圖想證明什麼；沒報的東西〕
+〔消融有沒有驗證第 8 段的推理；圖想證明什麼；沒報的東西〕
 
 **【提示】**
 
@@ -229,7 +234,7 @@ Example: 〔input〕 → 〔wrong output〕
 - What a reviewer would ask: 〔　〕
 
 ::: {.notes}
-**【講述】**（約 1.5 分鐘）
+**【講述】**
 
 〔自己寫〕
 
@@ -244,7 +249,7 @@ Example: 〔input〕 → 〔wrong output〕
 - Idea card? 〔yes: source 〔　〕 / no: why〕
 
 ::: {.notes}
-**【講述】**（約 1 分鐘）
+**【講述】**
 
 〔自己寫〕
 

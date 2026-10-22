@@ -1,0 +1,331 @@
+---
+# 複製成 reports/<題目>_r1_<日期>.qmd（和 research/ 裡的報告同名）。12 段、每段頁數不限：下面每個沒有冒號的 ## 是那一段的第一頁，標題固定；同一段加的頁標題寫「段標題: 子題」（範本已示範幾頁）。見 Lab-Hub 第 0 站教材「報告投影片」。
+# 通常由 AI 依教材的指令從 _r1_checked.md 產生草稿；第 9–12 段的判斷與心得自己寫。只放核對通過的內容，表格最後一欄標來源：[✓]{.tag .ok} 核對過、[AI]{.tag .warn} 報告的判斷、[我]{.tag} 自己的。
+# 全部中文，術語與論文標題保留英文。樣式用 theme.scss，類別見第 5 站 §4.4；Mermaid 一律放 {mermaid} 區塊、flowchart LR。已開 embed-resources，html 連同 qmd 一起 commit。講稿分【講述】與【提示】，【提示】後面要空一行
+title: "〔題目〕 Deep Research 第一輪"
+subtitle: "〔正式名稱〕"
+author: "〔名字〕"
+date: "〔YYYY-MM-DD〕"
+format:
+  revealjs:
+    theme: [default, theme.scss]
+    embed-resources: true
+    width: 1280
+    height: 800
+    margin: 0.04
+    slide-number: c/t
+    center: false
+    navigation-mode: linear
+    html-math-method:
+      method: katex
+    include-after-body:
+      - text: |
+          <script>
+          // 講稿（aside.notes）裡的數學只輸出 MathML，避免 presenter view 重複顯示
+          (function () {
+            var items = [];
+            document.querySelectorAll("aside.notes .math").forEach(function (el) {
+              items.push({ el: el, tex: el.textContent, display: el.classList.contains("display") });
+              el.classList.remove("math");
+            });
+            document.addEventListener("DOMContentLoaded", function () {
+              items.forEach(function (it) {
+                katex.render(it.tex, it.el, { displayMode: it.display, output: "mathml", throwOnError: false });
+              });
+            });
+          })();
+          </script>
+---
+
+## 題目一句話
+
+::: {.claim}
+〔正式名稱〕是在〔情境〕下，〔解決什麼問題〕。
+:::
+
+- 起點：〔教授給的題目名稱，或那幾句情境描述〕
+- 對應的正式名稱：〔　〕；理由：〔　〕
+
+::: {.notes}
+**【講述】**
+
+〔這個題目在解什麼；為什麼用這個名稱〕
+
+**【提示】**
+
+- 出處：報告 §1
+:::
+
+## 問題在哪裡
+
+```{mermaid}
+flowchart LR
+  IN[輸入] --> M1[模組一] --> M2[模組二] --> OUT[輸出]
+  style M2 stroke:#dc2626,stroke-width:4px
+```
+
+失敗例子：〔輸入〕 → 〔錯成什麼〕 [〔出處〕]{.cite}
+
+::: {.notes}
+**【講述】**
+
+〔一個輸入從頭走到尾：在哪一個框壞掉、壞成什麼樣〕
+
+**【提示】**
+
+- 出處：報告 §1；例子出自〔論文〕
+- 節點與邊：〔　〕
+:::
+
+## 概念邊界
+
+```{mermaid}
+flowchart LR
+  T[本題] --- A[相鄰概念一]
+  T --- B[相鄰概念二]
+```
+
+<!-- 圖和表放不下同一頁，就把表移到下一頁「概念邊界: 對照表」 -->
+
+| 相鄰概念 | 和本題的差別 | 來源 |
+|---|---|---|
+| 〔　〕 | 〔　〕 | [✓]{.tag .ok} |
+
+::: {.notes}
+**【講述】**
+
+〔最容易和本題搞混的是哪幾個，差在哪〕
+
+**【提示】**
+
+- 出處：報告 §1
+:::
+
+## 技術路線地圖
+
+```{mermaid}
+flowchart LR
+  R0[奠基方法] --> RA[路線一]
+  R0 --> RB[路線二]
+  RA --> RC[路線三]
+```
+
+::: {.notes}
+**【講述】**
+
+〔有哪幾條路線、誰從誰分出來、誰被取代〕
+
+**【提示】**
+
+- 出處：報告 §3
+- 節點與邊：〔　〕
+:::
+
+## 技術路線地圖: 路線表
+
+::: {.wrap}
+| 路線 | 核心機制 | 代表論文 | 優點 | 缺點 | 來源 |
+|---|---|---|---|---|---|
+| 〔　〕 | 〔　〕 | 〔　〕 | 〔　〕 | 〔　〕 | [✓]{.tag .ok} |
+:::
+
+::: {.notes}
+**【講述】**
+
+〔每條路線一句：靠什麼機制、代表作是哪篇〕
+
+**【提示】**
+
+- 出處：報告 §3
+:::
+
+## 各路線的架構
+
+```{mermaid}
+flowchart LR
+  IN[輸入] --> M1[模組一] --> M2[模組二] --> OUT[輸出]
+  RA[路線一] -.-> M1
+  RB[路線二] -.-> M2
+```
+
+::: {.notes}
+**【講述】**
+
+〔沿用第 2 段的 pipeline：每條路線改的是哪一個框〕
+
+**【提示】**
+
+- 出處：報告 §3
+:::
+
+<!-- 之後一條路線一頁，標題「各路線的架構: 〔路線名〕」，畫法一致；畫完對代表論文的架構圖 -->
+
+## 各路線的架構: 〔路線一〕
+
+```{mermaid}
+flowchart LR
+  IN[輸入] -->|資料| A[模組] -->|資料| CORE[核心成分] --> OUT[輸出]
+  style CORE stroke-width:4px
+```
+
+代表論文：〔標題〕 [〔URL〕]{.cite}
+
+::: {.notes}
+**【講述】**
+
+〔一個輸入在這條路線裡怎麼走；核心成分做了什麼〕
+
+**【提示】**
+
+- 出處：報告 §3
+- 架構對過代表論文 Fig.〔N〕：〔是／否，沒對過就在頁上標「架構未核對」〕
+:::
+
+## 評測現況
+
+| 資料集 | 指標 | 數字 | 測試條件 | 出處 | 來源 |
+|---|---|---|---|---|---|
+| 〔　〕 | 〔　〕 | 〔　〕 | 〔　〕 | 〔論文，表 N〕 | [✓]{.tag .ok} |
+
+<!-- 只留核對通過的列；表太寬就拆兩頁、或包在 ::: {.wrap} 裡，不要縮字 -->
+
+::: {.notes}
+**【講述】**
+
+〔大家都在哪些資料集上比、目前最好到多少、條件是什麼〕
+
+**【提示】**
+
+- 出處：報告 §4；數字對過核對表
+:::
+
+## 評測現況: 評測本身的問題
+
+- 〔　〕 [AI]{.tag .warn}
+
+::: {.notes}
+**【講述】**
+
+〔這些數字為什麼不能直接比〕
+
+**【提示】**
+
+- 出處：報告 §4
+:::
+
+## 成熟度與動態
+
+::: {.claim}
+〔萌芽／快速成長／成熟／被更大範式取代中〕：〔一句依據〕
+:::
+
+| 依據 | 出處 | 來源 |
+|---|---|---|
+| 〔　〕 | 〔　〕 | [AI]{.tag .warn} |
+
+<!-- 開源工具鏈、論文量各加一頁「成熟度與動態: 〔子題〕」；論文量只放附查詢式的，圖選做（matplotlib 存 figs/trend.svg） -->
+
+::: {.notes}
+**【講述】**
+
+〔這個領域現在在哪個階段；這是報告的判斷，依據是什麼〕
+
+**【提示】**
+
+- 出處：報告 §5、§6
+:::
+
+## 未解問題
+
+::: {.wrap}
+| 問題 | 提到它的論文 | 臺灣語境 | 來源 |
+|---|---|---|---|
+| 〔　〕 | 〔標題，URL〕 | 〔有關／無關〕 | [✓]{.tag .ok} |
+:::
+
+::: {.notes}
+**【講述】**
+
+〔反覆被提到、還沒解決的是哪些〕
+
+**【提示】**
+
+- 出處：報告 §7
+:::
+
+## 核對結果
+
+<div class="metrics">
+<div class="metric"><span class="num">〔N〕</span><span class="lab">核對項目</span></div>
+<div class="metric good"><span class="num">〔N〕</span><span class="lab">通過</span></div>
+<div class="metric bad"><span class="num">〔N〕</span><span class="lab">有誤</span></div>
+<div class="metric"><span class="num">〔N〕</span><span class="lab">無法核對</span></div>
+</div>
+
+抓到的錯：
+
+- 〔報告寫的 → 實際是〕
+
+::: {.notes}
+**【講述】**
+
+〔自己寫：核對到什麼程度；抓到的錯代表這份報告哪裡不能直接信〕
+
+**【提示】**
+
+- 數字照核對表結尾的統計
+:::
+
+## 親讀 5 篇
+
+::: {.wrap}
+| 論文 | 我讀到的 | 和報告說的不一樣 |
+|---|---|---|
+| 〔標題〕 | 〔　〕 | 〔　〕 |
+:::
+
+::: {.notes}
+**【講述】**
+
+〔自己寫〕
+
+**【提示】**
+
+- 每篇至少讀完摘要與 introduction
+:::
+
+## 我的判斷
+
+| 報告推薦的路線 | 理由 | 來源 |
+|---|---|---|
+| 〔　〕 | 〔　〕 | [AI]{.tag .warn} |
+
+- 我傾向：〔　〕 [我]{.tag}
+- 為什麼：〔　〕
+- 沒把握：〔　〕
+
+::: {.notes}
+**【講述】**
+
+〔自己寫〕
+
+**【提示】**
+
+- 〔　〕
+:::
+
+## 要問教授
+
+| # | 問題 | 為什麼影響選題 |
+|---|---|---|
+| 1 | 〔　〕 | 〔　〕 |
+
+::: {.notes}
+**【講述】**
+
+〔自己挑 5–8 題，最影響選題的放前面〕
+
+**【提示】**
+
+- 出處：報告 §9
+:::

@@ -101,7 +101,7 @@ uv run scripts/run.sh configs/<run_id>.yaml
 | `scripts/` | 訓練、評測、資料準備；一律 `uv run` 執行 | 第 3＋4 站 |
 | `results/` | `results.csv`（一行一個 run，不刪列）、`error_analysis.csv` | 第 3＋4 站 |
 | `notes/` | `log.md` 日誌、`reproduce.md` 復現紀錄、`idea_log.md`、`papers/` 論文核對紀錄與 `reading_log.md` 淺讀、`writing_errors.md` 我的英文錯誤類別 | 第 1b、3＋4、6 站、論文報告 |
-| `reports/` | 每週進度與論文報告的 `.qmd` 與 render 出的 `.html`；`figs/` 放圖；`theme.scss` 是 lab 的投影片樣式，不要改 | 第 5 站、論文報告 |
+| `reports/` | Deep Research 兩輪的報告投影片、每週進度與論文報告的 `.qmd` 與 render 出的 `.html`；`figs/` 放圖；`theme.scss` 是 lab 的投影片樣式，不要改 | 第 0、1、5 站、論文報告 |
 | `paper/` | 論文：一節一檔的 LaTeX（`sections/`、`tables/`、`figures/`）、`refs.bib`、`results/index.md` 每個數字的出處、`venue.md` 投稿規定、`plan.md` 主張與篇幅（教授審過才寫正文）、`ai_use.md`、`reviews/` 冷讀與盲讀；`build/` 不進 git。用法見 `paper/README.md` | 第 6 站 |
 | `.github/ISSUE_TEMPLATE/` | 週報 Issue 與問題 Issue 的模板 | 第 5 站 |
 | `pyproject.toml`、`uv.lock`、`.python-version` | 環境定義，uv 管；三個都進 git | 第 3＋4 站 §2 |
@@ -128,6 +128,7 @@ uv run scripts/run.sh configs/<run_id>.yaml
 | 東西 | 命名 |
 |---|---|
 | Deep Research 報告 | `<題目>_r1_<日期>.md` → 核對後 `<題目>_r1_<日期>_checked.md`；`<題目>_r2_<路線>_<日期>.md` |
+| Deep Research 報告投影片 | `reports/<題目>_r1_<日期>.qmd`、`reports/<題目>_r2_<路線>_<日期>.qmd`，和 `research/` 裡的報告同名；從 `_template_r1.qmd`、`_template_r2.qmd` 複製 |
 | 設計文件 | `<題目>_design_<日期>.md` |
 | run | `YYYYMMDD_<短名>_s<seed>`；config、log 同名 |
 | 週報 | `reports/progress_<YYMMDD>.qmd`（開會日期）；Issue 標題 `<YYMMDD> 進度` |
